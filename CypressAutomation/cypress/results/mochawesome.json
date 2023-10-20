@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-10-20T10:45:33.746Z",
+    "end": "2023-10-20T10:45:52.176Z",
+    "duration": 18430,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "48bdde78-fce5-4bcb-b101-5b2b86697644",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\homeTest.js",
+      "file": "cypress\\integration\\examples\\homeTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9dc4c309-a29d-4c30-a3a1-af6cd870f376",
+          "title": "Home Page Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "First Test",
+              "fullTitle": "Home Page Suite First Test",
+              "timedOut": null,
+              "duration": 1007,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const homePg = new _homePage.default();\nconst shopPg = new _shopPage.default();\nhomePg.getUserName().type(this.data.name);\nhomePg.getUserName().should('have.attr', 'minlength', 2);\nhomePg.getEmail().type(this.data.email);\nhomePg.getGender().select(this.data.gender);\nhomePg.getEmploymentStatus().should('be.disabled');\nhomePg.getSubmitButton().click();\nhomePg.getAlert().should('be.visible');\nhomePg.getAlert().then(function (val) {\n  const value = val.text();\n  cy.log(value);\n});\nhomePg.getShopLink().click();\nthis.data.products.forEach(function (productName) {\n  cy.selectProduct(productName);\n});\n//shopPg.getCheckoutButton().click();\n//cy.wait(8000);\n//shopPg.getFinalCheckoutButton().click();\ncy.contains('Checkout').click();\ncy.wait(2000);\ncy.get('').each(($e1, index, $list) => {});\ncy.contains('Checkout').click();\nshopPg.getCountry().type('India');\ncy.get('.suggestions ul>li>a').click();\ncy.get('#checkbox2').click({\n  force: true\n});\ncy.get('input[type=\"submit\"]').click();\ncy.get('.alert').then(function (val) {\n  const text = val.text();\n  expect(text.includes('Success')).to.be.true;\n});",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'name')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'name')\n    at Context.eval (webpack:///./cypress/integration/examples/homeTest.js:24:44)",
+                "diff": null
+              },
+              "uuid": "806c6cd8-32db-46df-af8d-51dba0eaddd1",
+              "parentUUID": "9dc4c309-a29d-4c30-a3a1-af6cd870f376",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "806c6cd8-32db-46df-af8d-51dba0eaddd1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1007,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
